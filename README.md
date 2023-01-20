@@ -59,16 +59,32 @@ You will find a total of 6 codes made in Python, of which 5 have the .ipynb exte
 <ol>
     <li>
         <b>01 - Datasets Creation.ipynb:</b>
-        In this code, the creation of the datasets that will be used to train the final models was made, here all the necessary image processing was done so that the model is very clear on how to classify values.
+        In this code, the creation of the datasets that will be used to train the final models was made, here all the necessary image processing was done so that the model is very clear on how to classify values.<br><br>
+        <div align="center">
+            <img width="70%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/codes_images/1.png?raw=true" />
+            <p>Dataset information in .csv.</p>
+        </div><br>
     </li>
     <li>
-        <b>02 - Models Creation.ipynb</b> In this code, the creation of the support vector machine models was carried out.
+        <b>02 - Models Creation.ipynb</b> In this code, the creation of the support vector machine models was carried out.<br><br>
+        <div align="center">
+            <img width="50%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/codes_images/2.png?raw=true" />
+            <p>Model files.</p>
+        </div><br>
     </li>
     <li>
-        <b>03 - Methodology - Experiments (Only Car Plate).ipynb</b> In this code, the methodology for the detection and reading of automobile license plates was applied when only an image of the license plate is given, without the car.
+        <b>03 - Methodology - Experiments (Only Car Plate).ipynb</b> In this code, the methodology for the detection and reading of automobile license plates was applied when only an image of the license plate is given, without the car.<br><br>
+        <div align="center">
+            <img width="40%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/codes_images/3.png?raw=true" />
+            <p>Detection and reading of important components.</p>
+        </div><br>
     </li>
     <li>
-        <b>04 - Methodology - Experiments (Car with Plate).ipynb</b> In this code, the methodology for the detection and reading of car license plates was applied when an image of a car with its license plate is delivered.
+        <b>04 - Methodology - Experiments (Car with Plate).ipynb</b> In this code, the methodology for the detection and reading of car license plates was applied when an image of a car with its license plate is delivered.<br><br>
+        <div align="center">
+            <img width="40%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/codes_images/4.png?raw=true" />
+            <p>Detection and reading of important components in a car plate with car.</p>
+        </div><br>
     </li>
     <li>
         <b>05 - Methodology - Plate detection on video.py</b> In this code, the methodology for the detection and reading of car license plates was applied, but in real time, through a video that was provided. It usually goes slow.
@@ -164,7 +180,7 @@ Once the license plate has been identified and its image has been obtained, it c
         The problem now is that there are too many rectangles for having obtained all the rectangles in the image, so the next task is to reduce the number of rectangles considerably, eliminating those that are not greater than or equal in width to 2% of the width of the image. original image and not less than or equal to 30% width of the original image; and at the same time, they must comply with being greater than or equal to 30% of the height of the original image and being less than or equal to 80% of the height of the original image. In this way, up to 95% of the rectangles initially obtained are usually eliminated (since there are usually dozens of rectangles the size of a single pixel) and only those that have a thin shape in width and have an elongated height remain, basically , the figure that letters and numbers usually have on a car plate.<br>
         Those rectangles that managed to meet the desired specifications, the image contained within them is extracted from the original image and resized to 28x28 pixels (the size of the images that our models accept). These images and rectangles are saved in variables for later use in some remaining procedures.<br><br>
         <div align="center">
-            <img width="90%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_4.png?raw=true" />
+            <img width="70%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_4.png?raw=true" />
             <p>Rectangles that met the specifications.</p>
         </div><br>
     </li>
@@ -178,7 +194,7 @@ Once the license plate has been identified and its image has been obtained, it c
         <b>E. Obtaining suitable components</b><br>
         In this part, those images that are part of the plate serial number will be extracted with the help of points of interest. The points of interest will be subjected to a hierarchical grouping using the "Ward" variance minimization algorithm, and thanks to the fact that the values of the points of interest are normalized, we can determine that these points will always vary by a distance between 0 and 1. , where 0.15 is the appropriate distance where usually all the members belonging to the serial code of the board form a single cluster together.<br><br>
         <div align="center">
-            <img width="90%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_5.png?raw=true" />
+            <img width="60%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_5.png?raw=true" />
             <p>Hierarchical clustering dendrogram showing that all points of interest in the rectangles of each image, in this example, lie within the distance of 0.15.</p>
         </div><br>
         The next thing is to find the cluster that contains the largest number of elements, since this is the one that ensures that all its points of interest are relatively similar and because normally a license plate usually has between 4 and 9 characters, and with all the restrictions placed previously, the remaining images and rectangles have decreased too much, for this reason, the group that turns out to contain the greatest number of elements at this separation distance, has the highest probability of being the correct one, since it is too much of a coincidence than at a distance less than or equal to 0.15, there are very similar elements that form a large group and that are not the characters that make up the plate serial code.<br>
@@ -223,7 +239,7 @@ Once the license plate has been identified and its image has been obtained, it c
         <b>K. Form the chain</b><br>
         Finally, it is enough to concatenate the resulting characters and deliver a single "string" type variable to the plate detector so that it can place it as the plate identifier.<br><br>
         <div align="center">
-            <img width="90%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_8.png?raw=true" />
+            <img width="60%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_8.png?raw=true" />
             <p>Completed plate prediction.</p>
         </div><br>
     </li>
@@ -237,3 +253,7 @@ In general, from an exclusive dataset to verify the effectiveness of the algorit
 Obviously, the best results were given in boards of the European, Japanese, Chinese, Argentinian, Russian, etc. type, because these boards have little information saturation and, normally, the contrast of the components is very high. In the case of license plates in the United States, the results were mixed, since license plates in this country can be customized and tend to have an excessive saturation of components and colors, making it difficult to recognize the serial code. But, even if they are diverse, as long as the letters can be discerned, the information can be read correctly.<br>
 Therefore, these success rates could be increased if only plates from China, Russia, Japan, etc. had been placed, and, conversely, decreased if only complex plates had been placed. For this reason, various plates were put on it, to avoid any type of "favoritism" towards a type of plate.<br>
 However, the methodology presents some confusion between similar characters, hence the problem that arose in most of the 43 plates that presented a single error. The characters that are often confused are the following: between 'G' and '6'; between '0' and '0'; between 'B' and '8'; between 'D' and 'O'; between 'I' and '1'; between 'Z' and '2'; etc. This can reduce the accuracy of the model, but the confusion is understandable, since at the time of image processing some samples may have remained similar and hence the errors between these characters with similarities. In addition to that, in themselves, these pairs of characters tend to be very similar.
+<div align="center">
+    <img width="90%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_8.png?raw=true" />
+    <p>Results of some predictions.</p>
+</div><br>
