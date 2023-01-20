@@ -256,5 +256,5 @@ However, the methodology presents some confusion between similar characters, hen
 
 <div align="center">
     <img width="40%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_9.png?raw=true" />
-    <p>Results of some predictions.</p>
+    <p>Some predictions.</p>
 </div>
