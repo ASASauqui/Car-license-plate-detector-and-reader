@@ -151,7 +151,7 @@ Below is a full explanation of the methodology used.
         Once the edges were located, a contour search was applied using the list recovery technique (it shows all possible contours); These contours are ordered from largest to smallest according to their area and only the 25 largest contours are chosen to eliminate unnecessary ones.<br>
         For each contour, its area is drawn and it is enclosed in a rectangle for its detection. The perimeter of the original contour is calculated to approximate the shape of its figure, here the objective is to find figures that have 4 vertices (whether rectangles or squares), therefore, if the approximate figure contains only 4 vertices, and if the area of said figure is less than or equal to 50% of the area of the original figure, and if its aspect ratio is greater than or equal to 1.7 and less than or equal to 5 (aspect ratio that license plates usually have), then it will be considered that said rectangle contains a license plate, and the sector of said rectangle will be extracted from the original image to obtain the license plate and frame it.<br><br>
         <div align="center">
-            <img width="90%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_2.png?raw=true" />
+            <img width="60%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_2.png?raw=true" />
             <p>Plate detection algorithm framing the car plate in red.</p>
         </div><br>
     </li>
@@ -170,7 +170,7 @@ Once the license plate has been identified and its image has been obtained, it c
         <b>B. Image processing</b><br>
         Again, the essential step in any image information reading process is image processing. The plate image will be converted to grayscale, a Gaussian blur will be applied to remove imperfections from said image and finally an Otsu thresholding to be able to binarize the image and distinguish the objects within it in a better way.<br><br>
         <div align="center">
-            <img width="90%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_3.png?raw=true" />
+            <img width="60%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_3.png?raw=true" />
             <p>Car license plate after image processing.</p>
         </div><br>
     </li>
@@ -180,7 +180,7 @@ Once the license plate has been identified and its image has been obtained, it c
         The problem now is that there are too many rectangles for having obtained all the rectangles in the image, so the next task is to reduce the number of rectangles considerably, eliminating those that are not greater than or equal in width to 2% of the width of the image. original image and not less than or equal to 30% width of the original image; and at the same time, they must comply with being greater than or equal to 30% of the height of the original image and being less than or equal to 80% of the height of the original image. In this way, up to 95% of the rectangles initially obtained are usually eliminated (since there are usually dozens of rectangles the size of a single pixel) and only those that have a thin shape in width and have an elongated height remain, basically , the figure that letters and numbers usually have on a car plate.<br>
         Those rectangles that managed to meet the desired specifications, the image contained within them is extracted from the original image and resized to 28x28 pixels (the size of the images that our models accept). These images and rectangles are saved in variables for later use in some remaining procedures.<br><br>
         <div align="center">
-            <img width="70%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_4.png?raw=true" />
+            <img width="50%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_4.png?raw=true" />
             <p>Rectangles that met the specifications.</p>
         </div><br>
     </li>
@@ -200,7 +200,7 @@ Once the license plate has been identified and its image has been obtained, it c
         The next thing is to find the cluster that contains the largest number of elements, since this is the one that ensures that all its points of interest are relatively similar and because normally a license plate usually has between 4 and 9 characters, and with all the restrictions placed previously, the remaining images and rectangles have decreased too much, for this reason, the group that turns out to contain the greatest number of elements at this separation distance, has the highest probability of being the correct one, since it is too much of a coincidence than at a distance less than or equal to 0.15, there are very similar elements that form a large group and that are not the characters that make up the plate serial code.<br>
         Once the largest cluster is obtained, we choose the images belonging to said cluster and discard those that are not part of it; In this way, we can say that we already have, to a certain extent, the appropriate components.<br><br>
         <div align="center">
-            <img width="90%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_6.png?raw=true" />
+            <img width="50%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_6.png?raw=true" />
             <p>Images within the largest cluster that belong to the vehicle's license plate serial code.</p>
         </div><br>
     </li>
@@ -208,7 +208,7 @@ Once the license plate has been identified and its image has been obtained, it c
         <b>F. Image ordering</b><br>
         The order of the images that we have does not correspond to the actual order in which they are found on the plate, they are usually randomized, therefore, to find the appropriate order, we order the images from smallest to largest according to their 'x' coordinate of the point of origin (vertex of the upper left side of the rectangle of the image), in this simple way, we managed to put the images in the correct order.<br><br>
         <div align="center">
-            <img width="90%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_7.png?raw=true" />
+            <img width="50%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_7.png?raw=true" />
             <p>Images ordered correctly.</p>
         </div><br>
     </li>
@@ -239,7 +239,7 @@ Once the license plate has been identified and its image has been obtained, it c
         <b>K. Form the chain</b><br>
         Finally, it is enough to concatenate the resulting characters and deliver a single "string" type variable to the plate detector so that it can place it as the plate identifier.<br><br>
         <div align="center">
-            <img width="60%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_8.png?raw=true" />
+            <img width="50%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_8.png?raw=true" />
             <p>Completed plate prediction.</p>
         </div><br>
     </li>
@@ -252,8 +252,9 @@ The results delivered by the proposed methodology, in general, were very good, b
 In general, from an exclusive dataset to verify the effectiveness of the algorithm, made up of 148 plates from different countries, types, colors, fonts and text locations, it managed to hit 80 plates perfectly (without any type of error), others 43 plates had only one error and the remaining ones had more than one error. To observe the number of errors, the Levenshtein distance algorithm was used to compare two strings. The standard deviation of 1.312 indicates that there is usually an error between predictions, and the average distance gives us 0.831, indicating the same as the standard deviation, that it is possible that there may be an error for each prediction between 4-9 characters. who usually owns a license plate.<br>
 Obviously, the best results were given in boards of the European, Japanese, Chinese, Argentinian, Russian, etc. type, because these boards have little information saturation and, normally, the contrast of the components is very high. In the case of license plates in the United States, the results were mixed, since license plates in this country can be customized and tend to have an excessive saturation of components and colors, making it difficult to recognize the serial code. But, even if they are diverse, as long as the letters can be discerned, the information can be read correctly.<br>
 Therefore, these success rates could be increased if only plates from China, Russia, Japan, etc. had been placed, and, conversely, decreased if only complex plates had been placed. For this reason, various plates were put on it, to avoid any type of "favoritism" towards a type of plate.<br>
-However, the methodology presents some confusion between similar characters, hence the problem that arose in most of the 43 plates that presented a single error. The characters that are often confused are the following: between 'G' and '6'; between '0' and '0'; between 'B' and '8'; between 'D' and 'O'; between 'I' and '1'; between 'Z' and '2'; etc. This can reduce the accuracy of the model, but the confusion is understandable, since at the time of image processing some samples may have remained similar and hence the errors between these characters with similarities. In addition to that, in themselves, these pairs of characters tend to be very similar.
+However, the methodology presents some confusion between similar characters, hence the problem that arose in most of the 43 plates that presented a single error. The characters that are often confused are the following: between 'G' and '6'; between '0' and '0'; between 'B' and '8'; between 'D' and 'O'; between 'I' and '1'; between 'Z' and '2'; etc. This can reduce the accuracy of the model, but the confusion is understandable, since at the time of image processing some samples may have remained similar and hence the errors between these characters with similarities. In addition to that, in themselves, these pairs of characters tend to be very similar.<br><br>
+
 <div align="center">
-    <img width="90%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_8.png?raw=true" />
+    <img width="40%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_9.png?raw=true" />
     <p>Results of some predictions.</p>
-</div><br>
+</div>
