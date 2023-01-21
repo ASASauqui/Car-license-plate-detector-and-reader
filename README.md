@@ -14,18 +14,18 @@ It is a Machine Learning project made with:
 
 <table align="center">
     <tr>
-        <th align="center" width="50%">
+        <th align="center" style="text-align: center">
             Programming Language
         </th>
-        <th align="center" width="50%">
+        <th align="center" style="text-align: center">
             Libraries
         </th>
     </tr>
     <tr>
-        <td align="center" width="50%">
+        <td align="center">
             <img src="https://img.shields.io/badge/python-blue.svg?style=for-the-badge&logo=python&logoColor=white">
         </td>
-        <td align="center" width="50%">
+        <td align="center">
             <img src="https://img.shields.io/badge/sklearn-c1ae32.svg?style=for-the-badge">
             <img src="https://img.shields.io/badge/scipy-white.svg?style=for-the-badge&logo=scipy&logoColor=071a68">
             <img src="https://img.shields.io/badge/cv2-ab33c6.svg?style=for-the-badge">
