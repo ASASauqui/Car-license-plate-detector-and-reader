@@ -2,6 +2,11 @@
 
 Vehicle license plate detector and reader that only uses Machine Learning techniques and image processing.<br>
 
+<div align="center">
+    <img width="50%" src="https://github.com/ASASauqui/Car-license-plate-detector-and-reader/blob/main/Readme%20Images/methodology/methodology_8.png?raw=true" />
+    <p>Plate prediction.</p>
+</div><br>
+
 <h2><b>Introduction</b></h2>
 
 The use of support vector machines, hierarchical clustering, contour detection using external recovery and recovery trees, and the threshold adaptive mean algorithm for the detection and reading of license plates will be presented. Our method combines various image processing techniques for robust plaque detection and makes use of two support vector machine models for letter and number prediction.<br>
